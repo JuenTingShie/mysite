@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from mysite.views import here,math    #把mysite這個目錄下的views.py import進來
- 
+from mysite.views import here,math,menu    #把mysite這個目錄下的views.py import進來
+
 urlpatterns = [
 	path('',here),    #預設的127.0.0.1:8000會到到的網頁
     path('admin/', admin.site.urls),
 	path('here/',here),    # site/here/ 會帶到的網頁
+	path('menu/',menu),    # 打開menu
 	path('math/<int:a>/<int:b>/',math)    #利用網址進行運算
 ]

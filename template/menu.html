@@ -1,0 +1,19 @@
+<title>菜單</title>
+    <body>
+        {% for food in foods %}
+        <!--利用forloop.counter來計算第幾次loop(從1開始)-->
+        <h3>第 {{ forloop.counter }} 道食物：</h3>
+        <ul>
+            <li>食物的名字：{{ food.name }}</li>
+            <li>價錢：{{ food.price }}</li>
+            <li>食物說明：{{ food.comment }}</li>
+            <li>食物會不會辣：
+            {%if food.spicy %} 辣
+            {% else %} 不辣
+            {% endif %}</li>
+        </ul>
+        <!--如果forloop.counter是0的時候執行這段-->
+        {% empty %}
+            <h1>抱歉！我們還沒開始販售任何食物</h1>
+        {% endfor %}
+    </body>
